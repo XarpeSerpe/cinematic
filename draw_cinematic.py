@@ -1,6 +1,8 @@
 # TO DO
+#comenzar a trabajar por capas
 #recalibrar ejes para que quepa el movimiento 
 #dibujar numeros en los ejes
+#Añadir vectores
 
 
 import sys, pygame, math, random
@@ -17,13 +19,12 @@ screen.fill(black)
 mainloop =  True
 Clock = pygame.time.Clock()
 
-x_axis(screen)
-y_axis(screen)
-
 while mainloop:
+    x_axis(screen)
+    y_axis(screen)
     tickFPS = Clock.tick(35)
     #pygame.display.set_caption("Press Esc to quit. FPS: %.2f" % (Clock.get_fps()))
-    #pygame.draw.circle(screen, black,[int(x),int(y)] , 5, 5)
+    #pygame.draw.circle(screen, black,[int(x),int(y)] , 5, 0)
     #fontsize = random.randint(35, 150)
     #myFont = pygame.font.SysFont("None", fontsize)
     #color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
@@ -32,7 +33,8 @@ while mainloop:
     #start_pos = random.randint(0,800),random.randint(0,800)
     #end_pos = random.randint(0,450),random.randint(0,450)
     #
-    
+    pygame.draw.line(screen, black, [width/2, y], [x,y], 1) 
+    pygame.draw.line(screen, black, [x, height/2], [x,y], 1)  
 
   
     t = t +0.1
@@ -45,9 +47,10 @@ while mainloop:
         t = 0
     if x > width :
         t = 0
-    #pygame.draw.circle(screen, blue,[int(x),int(y)] , 5, 5)
+    pygame.draw.circle(screen, blue,[int(x),int(y)] , 5, 0)
     pygame.draw.line(screen, red, [x_old, y_old], [x,y], 1) 
-    
+    pygame.draw.line(screen, blue, [width/2, y], [x,y], 1) 
+    pygame.draw.line(screen, blue, [x, height/2], [x,y], 1)  
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             mainloop = False # Be IDLE friendly!
