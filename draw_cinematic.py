@@ -17,7 +17,7 @@ t_max = ( v_0y + ( v_0y ** 2 + 2 * g * y_0 ) ** 0.5 ) / g
 y_max = y_0 + v_0y * t_max - 1 / 2 * g * t_max
 x_max = x_0 + v_0x * t_max
  
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
 screen.fill([255,255,255])
 color = 0, 200, 0
 white = 255,255,255
@@ -28,7 +28,6 @@ Clock = pygame.time.Clock()
  
 while mainloop:
     tickFPS = Clock.tick(fps)
-    pygame.display.set_caption("Press Esc to quit. FPS: %.2f" % (Clock.get_fps()))
     pygame.draw.circle(screen, white,[x,y] , 25, 5)
     #fontsize = random.randint(35, 150)
     #myFont = pygame.font.SysFont("None", fontsize)
