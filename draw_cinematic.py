@@ -2,7 +2,7 @@
 #comenzar a trabajar por capas
 #recalibrar ejes para que quepa el movimiento 
 #dibujar numeros en los ejes
-#Añadir vectores
+#Anhadir vectores
 
 
 import sys, pygame, math, random
