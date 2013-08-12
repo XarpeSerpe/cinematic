@@ -1,50 +1,43 @@
 # TO DO
 #recalibrar ejes para que quepa el movimiento 
 #dibujar numeros en los ejes
-#revisar la exponienciacion **?
+
 
 import sys, pygame, math, random
+from color import *
+from cinematic import *
+from axis import x_axis, y_axis
+
 pygame.init()
 size = width, height = 800 , 450
 
-x_0 = 0
-y_0 = 0
-v_0x = 35
-v_0y = 75
-g =  -10
+screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
+screen.fill(black)
 
-t_max = ( v_0y + ( v_0y ** 2 + 2 * g * y_0 ) ** 0.5 ) / g
-y_max = y_0 + v_0y * t_max - 1 / 2 * g * t_max
-x_max = x_0 + v_0x * t_max
- 
-screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
-screen.fill([255,255,255])
-color = 0, 200, 0
-white = 255,255,255
-mainloop, color, fontsize, delta, fps =  True,  (32,32,32), 35, 1, 30
-x, y = 0, 0
-t = 0
+mainloop =  True
 Clock = pygame.time.Clock()
- 
+
+x_axis(screen)
+y_axis(screen)
+
 while mainloop:
-    tickFPS = Clock.tick(fps)
-    pygame.draw.circle(screen, white,[x,y] , 25, 5)
+    tickFPS = Clock.tick(35)
+    #pygame.display.set_caption("Press Esc to quit. FPS: %.2f" % (Clock.get_fps()))
+    #pygame.draw.circle(screen, black,[int(x),int(y)] , 5, 5)
     #fontsize = random.randint(35, 150)
     #myFont = pygame.font.SysFont("None", fontsize)
     #color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-    screen.fill((255,255,255))
+    #screen.fill(black)
     #screen.blit(myFont.render("I love pygame!", 0, (color)), (x,y))
     #start_pos = random.randint(0,800),random.randint(0,800)
     #end_pos = random.randint(0,450),random.randint(0,450)
-    #pygame.draw.line(screen, color, start_pos, end_pos, 10) 
-    pygame.draw.line(screen, color, [0, height/2], [width, height/2], 1)
-    pygame.draw.line(screen, color, [width/2, 0], [width/2, height], 1)
-    for x in range(width/10) :
-        pygame.draw.line(screen, color,[0+x*10, height/2+3], [0+x*10, height/2-3],1)
-    for y in range(height/10) :
-        pygame.draw.line(screen, color,[width/2+3,0+y*10], [width/2-3,0+y*10 ],1)
-     
-    t = t +1 
+    #
+    
+
+  
+    t = t +0.1
+    x_old=x
+    y_old=y
     x = x_0 + v_0x * t
     y = height -(y_0+v_0y*t+g/2*t**2)
     
@@ -52,7 +45,9 @@ while mainloop:
         t = 0
     if x > width :
         t = 0
-    pygame.draw.circle(screen, color,[x,y] , 25, 5)
+    #pygame.draw.circle(screen, blue,[int(x),int(y)] , 5, 5)
+    pygame.draw.line(screen, red, [x_old, y_old], [x,y], 1) 
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             mainloop = False # Be IDLE friendly!
