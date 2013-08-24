@@ -1,7 +1,9 @@
 #Draw,axis, coordinates and trajectory
 import pygame
-size = width, height = 800 , 450
-green = 0,255,0
+from color import *
+
+size = width, height = 1920 , 1080
+
 
 x=0
 y=0
