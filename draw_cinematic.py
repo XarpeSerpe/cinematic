@@ -6,13 +6,13 @@
 
 
 import sys, math, random, pygame
-from planetario import *
+from force import *
 from color import *
 from cinematic import *
 from axis import x_axis, y_axis
 
 pygame.init()
-size = width, height = 1920 , 1080
+size = width, height = 800 , 600
 
 
 def espera ( ):
@@ -34,7 +34,7 @@ t = 0
 while mainloop:
     
      
-   #draw reference sistem 
+    #draw reference sistem 
     x_axis(screen)
     y_axis(screen)
     
