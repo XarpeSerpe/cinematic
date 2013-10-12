@@ -5,7 +5,7 @@ import random
 
 #pygame.display.Info()
 
-size = width, height = 1920 , 1080
+size = width, height = 800 , 600
 
 def no_force(screen):# no force.
             g = 0
