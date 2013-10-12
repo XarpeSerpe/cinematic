@@ -1,9 +1,6 @@
 #Draw,axis, coordinates and trajectory
 import pygame
-from color import *
-
-size = width, height = 1920 , 1080
-
+from screen_setup import *
 
 x=0
 y=0
