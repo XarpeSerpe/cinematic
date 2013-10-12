@@ -1,11 +1,9 @@
 import  pygame
-from color import *
+from screen_setup import *
 import random
 #from cinematic import *
 
 #pygame.display.Info()
-
-size = width, height = 800 , 600
 
 def no_force(screen):# no force.
             g = 0
@@ -43,8 +41,20 @@ def centrifuge_force(screen,t):# central force, centrifuga.
 
 def astro(screen,x,y,astro):
     if astro == 0:
-        pygame.draw.circle(screen, white,[int(x),int(y)] , 5, 0)
+        color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+        pygame.draw.circle(screen, color,[int(x),int(y)] , 5, 0)
     else:
         pygame.draw.circle(screen,red,[int(x),int(y)],5,0)
         #image.load('planeta.tga')
-        #mejorar con planeta.box(              
+        #mejorar con planeta.box(
+
+
+#potential energy
+def E_p(m,g,h):
+	return m*g*h
+#kinetic energy
+def E_k(m,v):
+	return 0.5*m*v*v
+#mechanical energy
+def E_m(m,g,h,v):
+	return m*g*h + 0.5*m*v*v
