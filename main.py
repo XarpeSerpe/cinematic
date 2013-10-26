@@ -30,8 +30,7 @@ while mainloop:
     elif i == 500:
         scene_2()
     else:
-	scene_3() 
-    
+        scene_4()
     for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 mainloop = False # Be IDLE friendly!
