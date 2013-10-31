@@ -1,6 +1,6 @@
 #Scenes
 
-import sys, math, random, pygame, time
+import sys, math, random, pygame, time, string
 from dynamics import *
 from screen_setup import *
 from cinematic import *
@@ -45,7 +45,7 @@ def scene_4():
 def get_key():
        while 1:
            event = pygame.event.poll()
-           if event.type == KEYDOWN:
+           if event.type == pygame.KEYDOWN:
             return event.key
        else:
            pass
@@ -73,11 +73,11 @@ def ask(screen, question):
   display_box(screen, question + ": " + string.join(current_string,""))
   while 1:
     inkey = get_key()
-    if inkey == K_BACKSPACE:
+    if inkey == pygame.K_BACKSPACE:
       current_string = current_string[0:-1]
-    elif inkey == K_RETURN:
+    elif inkey == pygame.K_RETURN:
       break
-    elif inkey == K_MINUS:
+    elif inkey == pygame.K_MINUS:
       current_string.append("_")
     elif inkey <= 127:
       current_string.append(chr(inkey))
