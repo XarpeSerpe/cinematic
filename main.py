@@ -25,9 +25,11 @@ i = 0
 
 while mainloop:
     i = i + 1 
-    if i < 500:
+    if i < 2000 :
+    scene_0()
+    if i < 2500 and i >= 2000:
         scene_1()
-    elif i == 500:
+    elif i == 2500:
         scene_2()
     else:
         scene_4()
@@ -41,3 +43,4 @@ while mainloop:
 
 pygame.display.quit()
 pygame.quit() # Be IDLE friendly! 
+v
