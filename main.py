@@ -26,7 +26,7 @@ i = 0
 while mainloop:
     i = i + 1 
     if i < 2000 :
-    scene_0()
+        scene_0()
     if i < 2500 and i >= 2000:
         scene_1()
     elif i == 2500:
