@@ -1,6 +1,8 @@
-import  pygame
+from pygame import *
 from screen_setup import *
+from math import *
 import random
+
 #from cinematic import *
 
 #pygame.display.Info()
@@ -58,3 +60,48 @@ def E_k(m,v):
 #mechanical energy
 def E_m(m,g,h,v):
 	return m*g*h + 0.5*m*v*v
+
+
+#Variables
+h_barra = 6.62606896e-34
+epsilon_0 = 8.8541878176e-12 #F/m
+mu = 4*3.141592**2*1e-7
+e = -1.602176565e-19
+#mecanica cuantica
+def autofuncion_un_electron (Z,  n,  l,  m):
+    a_0=4*3.141592*epsilon_0*h_barra*2/(mu*e**2)
+    if n==1 and l==0 and m==0:
+       theta = 360*random.random()
+       phi=180*random.random()-90
+       r= random.random()*a_0*escala
+       if random.random()<=(Z/a_0)**(3/2)*2*exp(-Z*r/a_0):#pensar de otra forma, no dejar solo a la mirad
+        x=int(cos(theta)*sin(phi)*r/a_0*width)+width/2
+        y=int(sin(theta)*sin(phi)*r/a_0*width)+height/2
+        pos=[x,y]
+        pygame.draw.circle(screen, red,pos, 2, 2)
+        pygame.display.update()
+    if n== 2 and l == 0 and m==0:
+        theta = 360*random.random()
+        phi=180*random.random()-90
+        r= random.random()*a_0*escala
+        if random.random()<=(Z/(2*a_0))**(3/2)*(2-Z*r/a_0)*exp(-Z*r/(2*a_0)):#pensar de otra forma, no dejar solo a la mirad
+            x=int(cos(theta)*sin(phi)*r/a_0*width)+width/2
+            y=int(sin(theta)*sin(phi)*r/a_0*width)+height/2
+            pos=[x,y]
+            pygame.draw.circle(screen, yellow,pos, 2, 2)
+            pygame.display.update()
+    if n== 2 and l == 1 and m==0:
+        theta = 360*random.random()
+        phi=180*random.random()-90
+        r= random.random()*a_0*escala
+        if random.random()<=(Z/(2*a_0))**(3/2)*(Z*r/(pow(3,0.5)*a_0))*exp(-Z*r/(2*a_0)):#pensar de otra forma, no dejar solo a la mirad
+            x=int(cos(theta)*sin(phi)*r/a_0*width)+width/2
+            y=int(sin(theta)*sin(phi)*r/a_0*width)+height/2
+            pos=[x,y]
+            pygame.draw.circle(screen, blue,pos, 2, 2)
+            pygame.display.update()                                             
+    else:
+        pass
+    
+            
+    
