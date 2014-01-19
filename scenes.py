@@ -1,11 +1,41 @@
 #Scenes
 
-import sys, math, random, pygame, time, string
+import sys, math, random, string #falta time?
+from math import *
+from pygame import *
 from dynamics import *
 from screen_setup import *
 from cinematic import *
-from axis import x_axis, y_axis
 
+from axis import x_axis, y_axis
+ 
+def scene_0 ():
+    screen.fill(black)
+    fontsize = 50
+    #proton masa 1800 la del electron 
+    x =width/2
+    y = height/2
+    pos = [x, y]
+    pygame.draw.circle(screen, red, pos, 20)
+    myFont = pygame.font.SysFont("None", fontsize)
+    screen.blit(myFont.render("Proton", 0, (red)), (x-60,y-60))
+    pygame.display.update()
+    #time.delay(2000)
+    screen.blit(myFont.render("Neutron",0,(black)),(x-40,y-50))
+    x+=7
+    y+=8
+    pos=[x,y]
+    pygame.draw.circle(screen, black, pos,21,21)
+    pygame.display.update()
+    #time.delay(2000)
+   
+    while 1:
+        
+        #autofuncion_un_electron(Z,n,l,m)
+        autofuncion_un_electron (1, 1, 0, 0,1000)
+        autofuncion_un_electron (1, 2, 0, 0,1000)
+        autofuncion_un_electron (1, 2, 1, 0,1000)
+        #orbital P
 
 def scene_1():
     #draw reference sistem 
