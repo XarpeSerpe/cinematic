@@ -68,7 +68,7 @@ epsilon_0 = 8.8541878176e-12 #F/m
 mu = 4*3.141592**2*1e-7
 e = -1.602176565e-19
 #mecanica cuantica
-def autofuncion_un_electron (Z,  n,  l,  m):
+def autofuncion_un_electron (Z,  n,  l,  m,escala):
     a_0=4*3.141592*epsilon_0*h_barra*2/(mu*e**2)
     if n==1 and l==0 and m==0:
        theta = 360*random.random()
