@@ -23,4 +23,8 @@ height_event = y_max-y_0
 #Decide who is limit
 
 
-    
+def distancia (xo,yo,zo,x1,y1,z1):
+    return math.sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0)+(z1-z0)*(z1-z0))
+        
+
+     
